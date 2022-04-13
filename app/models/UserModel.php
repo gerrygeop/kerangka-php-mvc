@@ -2,10 +2,19 @@
 
 class UserModel {
 
-    private $nama = 'MCV';
+    private $table = 'users';
+    private $db;
 
-    public function getUser()
+    public function __construct()
     {
-        return $this->nama;
+        $this->db = new Database;
+    }
+
+    public function findUserByUsername($username)
+    {
+        $this->db->query('SELECT * FROM '. $this->table .' WHERE username=:username');
+        $this->db->bind('username', $username);
+
+        return $this->db->single();
     }
 }

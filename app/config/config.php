@@ -1,7 +1,14 @@
 <?php
 
-// menggunakan pretty URL
-define('BASEURL', 'http://my-php-framework.test');
+/* 
+ * Laragon
+ */
+define('BASEURL', 'http://kerangka-php-mvc.test');
+
+/* 
+ * XAMPP
+ */
+// define('BASEURL', 'http://localhost/kerangka-php-mvc/public');
 
 
 // DB
