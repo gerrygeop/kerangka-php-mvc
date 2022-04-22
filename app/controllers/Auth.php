@@ -64,15 +64,17 @@ class Auth extends Controller {
 
             } else {
                 $this->createUserSession($loginUser);
-                $this->checkLevelUser();
+                header('Location: '. BASEURL .'/home');
+                exit;
+                // $this->checkRoleUser();
             }
         }
     }
 
-    public function checkLevelUser()
+    private function checkRoleUser()
     {
         if ( isset($_SESSION['user_id']) ) {
-            if ( $_SESSION['is_admin'] ) {
+            if ( $_SESSION['role'] ) {
                 header('Location: '. BASEURL .'/home/dashboard');
                 exit;
             }
@@ -81,18 +83,15 @@ class Auth extends Controller {
         }
     }
 
-    public function createUserSession($user)
+    private function createUserSession($user)
     {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
-        $_SESSION['is_admin'] = $user['is_admin'];
+        $_SESSION['role'] = $user['role'];
     }
 
     public function logout()
     {
-        unset($_SESSION['user_id']);
-        unset($_SESSION['username']);
-        unset($_SESSION['is_admin']);
         session_destroy($_SESSION);
         header('Location: '. BASEURL .'/auth');
         exit;

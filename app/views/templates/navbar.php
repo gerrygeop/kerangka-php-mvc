@@ -12,13 +12,13 @@
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a
-                            class="nav-link"
-                            href="#">
-                            About
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="#">
+                        About
+                    </a>
+                </li>
             </ul>
             
             <div class="navbar-nav">
